@@ -169,3 +169,8 @@ Our component usage would then look something like this:
 ```vue
 <BlogPost id="cea618d6-16a0-4b9a-87fa-7a1f750f29b6" />
 ```
+
+License
+----------------------------------------------------------------
+
+This project is licensed under the [MIT License](LICENSE).
