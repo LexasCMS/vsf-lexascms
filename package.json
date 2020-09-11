@@ -1,0 +1,23 @@
+{
+  "name": "vsf-lexascms",
+  "version": "0.1.0",
+  "description": "Official LexasCMS module for Vue Storefront.",
+  "keywords": [
+    "vue-storefront",
+    "lexascms"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LexasCMS/vsf-lexascms.git"
+  },
+  "license": "MIT",
+  "author": "LexasCMS (https://www.lexascms.com)",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "jsona": "^1.8.0",
+    "qs": "^6.9.4"
+  },
+  "devDependencies": {
+    "@types/qs": "^6.9.4"
+  }
+}

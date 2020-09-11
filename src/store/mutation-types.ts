@@ -1,0 +1,1 @@
+export const SET_LEXASCMS_DATA = 'SET_LEXASCMS_DATA';
