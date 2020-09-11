@@ -20,11 +20,14 @@ Installation
 
 ### 1. Install the module
 
-Run the following command from the root directory of your Vue Storefront project.
+Run the following commands from the root directory of your Vue Storefront project.
 
 ```bash
 git clone https://github.com/LexasCMS/vsf-lexascms ./src/modules/vsf-lexascms
+yarn install
 ```
+
+These commands will install the module into the correct location in your project and install the modules dependencies.
 
 ### 2. Configure the module
 
