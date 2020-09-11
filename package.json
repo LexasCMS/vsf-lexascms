@@ -1,6 +1,6 @@
 {
   "name": "vsf-lexascms",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "Official LexasCMS module for Vue Storefront.",
   "keywords": [
     "vue-storefront",
@@ -18,6 +18,23 @@
     "qs": "^6.9.4"
   },
   "devDependencies": {
-    "@types/qs": "^6.9.4"
+    "@types/qs": "^6.9.4",
+    "release-it": "^14.0.2",
+    "release-it-lerna-changelog": "^2.4.0"
+  },
+  "release-it": {
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_AUTH"
+    },
+    "npm": {
+      "publish": false
+    },
+    "plugins": {
+      "release-it-lerna-changelog": {
+        "infile": "CHANGELOG.md",
+        "launchEditor": true
+      }
+    }
   }
 }
