@@ -38,7 +38,7 @@ Configure your LexasCMS space ID by adding the following to your `config/local.j
 
 ### 3. Register the module
 
-Register the `vsf-lexascms` module by adding the following to your `./src/modiles/client.ts` file.
+Register the `vsf-lexascms` module by adding the following to your `./src/modules/client.ts` file.
 
 ```ts
 import { LexascmsModule } from './vsf-lexascms/src';
@@ -129,10 +129,10 @@ The below code defines our new `BlogPost` component:
 </template>
 
 <script>
-import LexascmsCollectionMixin from 'src/modules/vsf-lexascms/src/mixins/LexascmsCollection';
+import LexascmsItemMixin from 'src/modules/vsf-lexascms/src/mixins/LexascmsItem';
 
 export default {
-  mixins: [ LexascmsCollectionMixin ]
+  mixins: [ LexascmsItemMixin ]
 }
 </script>
 ```
@@ -149,10 +149,10 @@ Since we'll always be retrieving a blog post, we can simplify the usage of our c
 // ...
 
 <script>
-import LexascmsCollectionMixin from 'src/modules/vsf-lexascms/src/mixins/LexascmsCollection';
+import LexascmsItemMixin from 'src/modules/vsf-lexascms/src/mixins/LexascmsItem';
 
 export default {
-  mixins: [ LexascmsCollectionMixin ],
+  mixins: [ LexascmsItemMixin ],
 
   props: {
     contentType: {
