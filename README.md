@@ -5,6 +5,15 @@ This is the official Vue Storefront module for retrieving content from [LexasCMS
 
 Under the hood, this module makes use of LexasCMS' JSON:API (REST) content delivery API. For further information, please [see the documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/).
 
+- [Installation](#installation)
+  - [Install the module](#1-install-the-module)
+  - [Configure the module](#2-configure-the-module)
+  - [Register the module](#3-register-the-module)
+- [Usage](#usage)
+  - [LexascmsCollection](#lexascmscollection)
+  - [LexascmsItem](#lexascmsitem)
+- [Example](#example)
+
 
 Installation
 ----------------------------------------------------------------
@@ -100,3 +109,63 @@ Your component will now accept the following props to configure which content it
 | id          | String | Y        | `1234`                                | The ID of the content item to be retrieved.                                                                                                                  |
 | fields      | Object | N        | `{ blogPost: 'title,publishedAt' }`   | See [sparse fieldsets documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/sparse-fieldsets/) for more info.                           |
 | localeCode  | String | N        | `en-GB`                               | See [localisation documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/localisation/) for more info.                                   |
+
+
+Example
+----------------------------------------------------------------
+
+This section provides an example of using this module to create a new `BlogPost` component which retrieves and displays a given blog post from LexasCMS.
+
+The below code defines our new `BlogPost` component:
+
+```vue
+<template>
+  <div>
+    <div v-if="item">
+      <h2>{{item.title}}</h2>
+      <div>{{item.body}}</div>
+    </div>
+  </div>
+</template>
+
+<script>
+import LexascmsCollectionMixin from 'src/modules/vsf-lexascms/src/mixins/LexascmsCollection';
+
+export default {
+  mixins: [ LexascmsCollectionMixin ]
+}
+</script>
+```
+
+This component can then be used as follows:
+
+```vue
+<BlogPost content-type="blogPost" id="cea618d6-16a0-4b9a-87fa-7a1f750f29b6" />
+```
+
+Since we'll always be retrieving a blog post, we can simplify the usage of our component by defaulting the value of the `contentType` prop to `blogPost`.
+
+```vue
+// ...
+
+<script>
+import LexascmsCollectionMixin from 'src/modules/vsf-lexascms/src/mixins/LexascmsCollection';
+
+export default {
+  mixins: [ LexascmsCollectionMixin ],
+
+  props: {
+    contentType: {
+      type: String,
+      default: 'blogPost'
+    }
+  }
+}
+</script>
+```
+
+Our component usage would then look something like this:
+
+```vue
+<BlogPost id="cea618d6-16a0-4b9a-87fa-7a1f750f29b6" />
+```
