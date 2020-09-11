@@ -13,6 +13,9 @@ export default {
     fields: {
       type: Object
     },
+    include: {
+      type: String
+    },
     localeCode: {
       type: String
     }
@@ -46,6 +49,7 @@ export default {
         path: `/${this.contentType}/${this.id}`,
         params: {
           fields: this.fields !== undefined ? this.fields : undefined,
+          include: this.include !== undefined ? this.include : undefined,
           localeCode: this.localeCode !== undefined ? this.localeCode : undefined
         }
       };

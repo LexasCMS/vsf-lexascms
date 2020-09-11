@@ -12,6 +12,9 @@ export default {
     filter: {
       type: Object
     },
+    include: {
+      type: String
+    },
     localeCode: {
       type: String
     },
@@ -59,6 +62,7 @@ export default {
         params: {
           fields: this.fields !== undefined ? this.fields : undefined,
           filter: this.filter !== undefined ? this.filter : undefined,
+          include: this.include !== undefined ? this.include : undefined,
           localeCode: this.localeCode !== undefined ? this.localeCode : undefined,
           page: this.page !== undefined ? this.page : undefined,
           sort: this.sort !== undefined ? this.sort : undefined
