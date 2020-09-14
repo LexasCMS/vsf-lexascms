@@ -81,7 +81,7 @@ Your component will now accept the following props to configure which content sh
 
 | Name        | Type   | Required | Example                               | Comments                                                                                                                                                              |
 |-------------|--------|----------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| contentType | String | Y        | `blogPost`                            | The type of content to be retrieved.                                                                                                                  |
+| contentType | String | Y        | `blogPost`                            | The type of content to be retrieved.                                                                                                                                  |
 | fields      | Object | N        | `{ blogPost: 'title,publishedAt' }`   | See [sparse fieldsets documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/sparse-fieldsets/) for more info.                           |
 | filter      | Object | N        | `{ title: { _startsWith: 'Hello' } }` | See [filtering documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/filtering/) for more info.                                         |
 | include     | String | N        | `author,coverImage`                   | See [fetching records documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/fetching-records/#including-related-records) for more info. |
@@ -108,9 +108,10 @@ Your component will now accept the following props to configure which content it
 
 | Name        | Type   | Required | Example                               | Comments                                                                                                                                                              |
 |-------------|--------|----------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| contentType | String | Y        | `blogPost`                            | The type of content to be retrieved.                                                                                                                  |
-| id          | String | Y        | `1234`                                | The ID of the content item to be retrieved.                                                                                                                  |
+| contentType | String | Y        | `blogPost`                            | The type of content to be retrieved.                                                                                                                                  |
+| id          | String | Y        | `1234`                                | The ID of the content item to be retrieved.                                                                                                                           |
 | fields      | Object | N        | `{ blogPost: 'title,publishedAt' }`   | See [sparse fieldsets documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/sparse-fieldsets/) for more info.                           |
+| include     | String | N        | `author,coverImage`                   | See [fetching records documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/fetching-records/#including-related-records) for more info. |
 | localeCode  | String | N        | `en-GB`                               | See [localisation documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/localisation/) for more info.                                   |
 
 
