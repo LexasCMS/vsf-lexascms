@@ -1,18 +1,17 @@
-LexasCMS Module for Vue Storefront
-================================================================
+<h1 align="center">
+  <img src="header@2x.png" width="700" alt="LexasCMS Module for Vue Storefront" />
+</h1>
 
-This is the official Vue Storefront module for retrieving content from [LexasCMS](https://www.lexascms.com).
+<h4 align="center">This is the official Vue Storefront module for retrieving content from <a href="https://www.lexascms.com" target="_blank">LexasCMS</a>.</h4>
 
-Under the hood, this module makes use of LexasCMS' JSON:API (REST) content delivery API. For further information, please [see the documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/).
+<p align="center">
+  <a href="#installation">Installation</a> •
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#example">Example</a> •
+  <a href="#license">License</a>
+</p>
 
-- [Installation](#installation)
-  - [Install the module](#1-install-the-module)
-  - [Configure the module](#2-configure-the-module)
-  - [Register the module](#3-register-the-module)
-- [Usage](#usage)
-  - [LexascmsCollection](#lexascmscollection)
-  - [LexascmsItem](#lexascmsitem)
-- [Example](#example)
+<br /><br />
 
 
 Installation
@@ -55,8 +54,10 @@ export function registerClientModules () {
 ```
 
 
-Usage
+How To Use
 ----------------------------------------------------------------
+
+Under the hood, this module makes use of LexasCMS' JSON:API (REST) content delivery API. For further information, please [see the documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/).
 
 The `vsf-lexascms` module provides two mixins which can be used to retrieve content from LexasCMS. 
 
