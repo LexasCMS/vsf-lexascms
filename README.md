@@ -14,6 +14,18 @@
 <br /><br />
 
 
+Table of Contents
+----------------------------------------------------------------
+
+- [Installation](#installation)
+- [How to Use](#how-to-use)
+  - [LexascmsCollection](#lexascmscollection)
+  - [LexascmsItem](#lexascmsitem)
+  - [Request Context](#request-context)
+- [Example](#example)
+- [License](#license)
+
+
 Installation
 ----------------------------------------------------------------
 
@@ -83,6 +95,7 @@ Your component will now accept the following props to configure which content sh
 | Name        | Type   | Required | Example                               | Comments                                                                                                                                                              |
 |-------------|--------|----------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | contentType | String | Y        | `blogPost`                            | The type of content to be retrieved.                                                                                                                                  |
+| context     | Object | N        | `{ audienceAttributes: { age: 25 } }` | See [request context documentation](https://www.lexascms.com/docs/api-reference/content-delivery/request-context/) for more info.                                     |
 | fields      | Object | N        | `{ blogPost: 'title,publishedAt' }`   | See [sparse fieldsets documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/sparse-fieldsets/) for more info.                           |
 | filter      | Object | N        | `{ title: { _startsWith: 'Hello' } }` | See [filtering documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/filtering/) for more info.                                         |
 | include     | String | N        | `author,coverImage`                   | See [fetching records documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/fetching-records/#including-related-records) for more info. |
@@ -110,10 +123,49 @@ Your component will now accept the following props to configure which content it
 | Name        | Type   | Required | Example                               | Comments                                                                                                                                                              |
 |-------------|--------|----------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | contentType | String | Y        | `blogPost`                            | The type of content to be retrieved.                                                                                                                                  |
+| context     | Object | N        | `{ audienceAttributes: { age: 25 } }` | See [request context documentation](https://www.lexascms.com/docs/api-reference/content-delivery/request-context/) for more info.                                     |
 | id          | String | Y        | `1234`                                | The ID of the content item to be retrieved.                                                                                                                           |
 | fields      | Object | N        | `{ blogPost: 'title,publishedAt' }`   | See [sparse fieldsets documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/sparse-fieldsets/) for more info.                           |
 | include     | String | N        | `author,coverImage`                   | See [fetching records documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/fetching-records/#including-related-records) for more info. |
 | localeCode  | String | N        | `en-GB`                               | See [localisation documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/localisation/) for more info.                                   |
+
+
+### Request Context
+
+In the event that you would like to set a request context on your requests to LexasCMS (i.e. for content personalisation), you can dispatch the `vsf-lexascms/setRequestContext` store action.
+
+You can dispatch this action from anywhere that you have access to the store, and it will automatically attach the provided context to all subsequent requests that are made to LexasCMS.
+
+**Note:** You can also retrieve the current request context from the store by accessing the `vsf-lexascms/requestContext` getter.
+
+The following example shows how you could attach a request context from the `serverPrefetch` hook of your themes top level `App` component.
+
+```vue
+<template>
+  <!-- ... -->
+</template>
+
+<script>
+// ...
+
+export default {
+  
+  // ...
+
+  serverPrefetch () {
+    this.$store.dispatch('vsf-lexascms/setRequestContext', {
+      audienceAttributes: {
+        age: 25,
+        location: 'GB'
+      }
+    });
+  },
+  
+  // ...
+
+}
+</script>
+```
 
 
 Example

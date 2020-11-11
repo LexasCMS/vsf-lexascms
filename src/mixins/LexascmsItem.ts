@@ -6,6 +6,9 @@ export default {
       type: String,
       required: true
     },
+    context: {
+      type: Object
+    },
     id: {
       type: String,
       required: true
@@ -51,7 +54,8 @@ export default {
           fields: this.fields !== undefined ? this.fields : undefined,
           include: this.include !== undefined ? this.include : undefined,
           localeCode: this.localeCode !== undefined ? this.localeCode : undefined
-        }
+        },
+        requestContext: this.context !== undefined ? this.context : this.$store.getters['vsf-lexascms/requestContext']
       };
     }
   }
