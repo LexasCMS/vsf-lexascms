@@ -31,6 +31,10 @@ export const LexascmsStore = {
             params: args.params,
             paramsSerializer: (params) => qs.stringify(params)
           };
+          // Add LexasCMS auth header if required
+          if (config.lexascms.apiKey !== undefined) {
+            requestOptions.headers['Authorization'] = `Bearer ${config.lexascms.apiKey}`;
+          }
           // Add LexasCMS Request Context if required
           if (args.requestContext !== null) {
             // Get request context
