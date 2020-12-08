@@ -33,9 +33,14 @@ export const LexascmsStore = {
           };
           // Add LexasCMS Request Context if required
           if (args.requestContext !== null) {
-            requestOptions.headers['x-lexascms-context'] = base64.encode(
-              JSON.stringify(args.requestContext)
-            );
+            // Get request context
+            let requestContext = args.requestContext;
+            // Encode request context if required
+            if (typeof requestContext !== 'string') {
+              requestContext = base64.encode(JSON.stringify(args.context));
+            }
+            // Set request context header
+            requestOptions.headers['x-lexascms-context'] = requestContext;
           }
           // Send request
           const response = await axios.get(args.path, requestOptions);
