@@ -22,6 +22,7 @@ Table of Contents
   - [LexascmsCollection](#lexascmscollection)
   - [LexascmsItem](#lexascmsitem)
   - [Request Context](#request-context)
+  - [Supporting Content Previews](#supporting-content-previews)
 - [Example](#example)
 - [License](#license)
 
@@ -44,9 +45,10 @@ These commands will install the module into the correct location in your project
 
 Configure your LexasCMS space ID by adding the following to your `config/local.json` file.
 
-```js
+```json
 "lexascms": {
-  "spaceId": "YOUR_LEXASCMS_SPACE_ID"
+  "spaceId": "YOUR_LEXASCMS_SPACE_ID",
+  "apiKey": "YOUR_LEXASCMS_API_KEY" // Optional, unless using content previews
 }
 ```
 
@@ -132,7 +134,7 @@ Your component will now accept the following props to configure which content it
 
 ### Request Context
 
-In the event that you would like to set a request context on your requests to LexasCMS (i.e. for content personalisation), you can dispatch the `vsf-lexascms/setRequestContext` store action.
+In the event that you would like to provide a request context with your requests to LexasCMS (i.e. for content personalisation), you can dispatch the `vsf-lexascms/setRequestContext` store action.
 
 You can dispatch this action from anywhere that you have access to the store, and it will automatically attach the provided context to all subsequent requests that are made to LexasCMS.
 
@@ -159,6 +161,41 @@ export default {
         location: 'GB'
       }
     });
+  },
+  
+  // ...
+
+}
+</script>
+```
+
+### Supporting Content Previews
+
+When making use of LexasCMS's [visual content previews](https://www.lexascms.com/features/content-previews/) feature, LexasCMS will load your website with the `lexascmsRequestContent` query parameter.
+
+The value of this parameter will be a pre-encoded request context, which should be provided directly to all requests to the Content Delivery API.
+
+Taking the previous example, the below snippet has been updated to instead pull the pre-encoded value from the `lexascmsRequestContent` query parameter:
+
+```vue
+<template>
+  <!-- ... -->
+</template>
+
+<script>
+// ...
+
+export default {
+  
+  // ...
+
+  serverPrefetch () {
+    // Get pre-encoded LexasCMS request context
+    const preEncodedRequestContext = this.$route.query.lexascmsRequestContext;
+    // Set request context is value has been provided
+    if (preEncodedRequestContext !== undefined) {
+      this.$store.dispatch('vsf-lexascms/setRequestContext', preEncodedRequestContext);
+    }
   },
   
   // ...
