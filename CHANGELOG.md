@@ -1,3 +1,11 @@
+## 0.1.2 (2020-12-08)
+
+#### :rocket: Enhancement
+* [#6](https://github.com/LexasCMS/vsf-lexascms/pull/6) Add support for content previews ([@mike183](https://github.com/mike183))
+
+#### Committers: 1
+- Michael Donaldson ([@mike183](https://github.com/mike183))
+
 ## 0.1.1 (2020-11-11)
 
 #### :rocket: Enhancement
