@@ -45,7 +45,7 @@ These commands will install the module into the correct location in your project
 
 Configure your LexasCMS space ID by adding the following to your `config/local.json` file.
 
-```json
+```js
 "lexascms": {
   "spaceId": "YOUR_LEXASCMS_SPACE_ID",
   "apiKey": "YOUR_LEXASCMS_API_KEY" // Optional, unless using content previews
