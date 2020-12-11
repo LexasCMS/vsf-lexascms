@@ -3,6 +3,7 @@ import base64 from 'base-64';
 import config from 'config'
 import Jsona from 'jsona';
 import * as qs from 'qs';
+import Vue from 'vue';
 
 import {
   SET_LEXASCMS_DATA,
@@ -70,7 +71,7 @@ export const LexascmsStore = {
 
   mutations: {
     [SET_LEXASCMS_DATA] (state, { key, value }) {
-      state.data[key] = value;
+      Vue.set(state.data, key, value);
     },
     [SET_LEXASCMS_REQUEST_CONTEXT] (state, newRequestContext) {
       state.requestContext = newRequestContext;
@@ -79,6 +80,6 @@ export const LexascmsStore = {
 
   getters: {
     data: (state) => (key) => state.data[key],
-    requestContext: (state) => state.requestContext,
+    requestContext: (state) => state.requestContext
   }
 }
