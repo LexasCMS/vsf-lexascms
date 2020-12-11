@@ -1,3 +1,12 @@
+## 0.1.3 (2020-12-11)
+
+#### :bug: Bug Fix
+* [#8](https://github.com/LexasCMS/vsf-lexascms/pull/8) Correctly handle errors when fetching data ([@mike183](https://github.com/mike183))
+* [#7](https://github.com/LexasCMS/vsf-lexascms/pull/7) Fix reactivity bug when fetching data ([@mike183](https://github.com/mike183))
+
+#### Committers: 1
+- Michael Donaldson ([@mike183](https://github.com/mike183))
+
 ## 0.1.2 (2020-12-08)
 
 #### :rocket: Enhancement
