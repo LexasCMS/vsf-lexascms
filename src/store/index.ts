@@ -21,7 +21,7 @@ export const LexascmsStore = {
   actions: {
     getData ({ commit }, args) {
       // Fetch data from LexasCMS
-      return new Promise(async (resolve) => {
+      return new Promise(async (resolve, reject) => {
         try {
           // Prepare request options
           const requestOptions: AxiosRequestConfig = {
@@ -60,7 +60,7 @@ export const LexascmsStore = {
           // Resolve
           resolve(data);
         } catch (e) {
-          resolve({ error: 'Error fetching item from LexasCMS' })
+          reject({ error: 'Error fetching item from LexasCMS' })
         }
       });
     },
