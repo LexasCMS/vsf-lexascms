@@ -1,3 +1,11 @@
+## 0.1.4 (2021-03-12)
+
+#### :rocket: Enhancement
+* [#11](https://github.com/LexasCMS/vsf-lexascms/pull/11) Make error messages more useful when fetching content fails ([@mike183](https://github.com/mike183))
+
+#### Committers: 1
+- Michael Donaldson ([@mike183](https://github.com/mike183))
+
 ## 0.1.3 (2020-12-11)
 
 #### :bug: Bug Fix
