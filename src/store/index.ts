@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import base64 from 'base-64';
-import config from 'config'
+import config from 'config';
 import Jsona from 'jsona';
 import * as qs from 'qs';
 import Vue from 'vue';
@@ -60,7 +60,11 @@ export const LexascmsStore = {
           // Resolve
           resolve(data);
         } catch (e) {
-          reject({ error: 'Error fetching item from LexasCMS' })
+          console.error(JSON.stringify(e.response.data, null, 2));
+          reject({
+            error: 'Error fetching item from LexasCMS',
+            detail: e.response.data
+          });
         }
       });
     },
