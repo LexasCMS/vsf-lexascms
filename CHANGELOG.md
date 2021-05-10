@@ -1,3 +1,11 @@
+## 0.1.5 (2021-05-10)
+
+#### :rocket: Enhancement
+* [#13](https://github.com/LexasCMS/vsf-lexascms/pull/13) Add pagination support to LexascmsItemMixin ([@mike183](https://github.com/mike183))
+
+#### Committers: 1
+- Michael Donaldson ([@mike183](https://github.com/mike183))
+
 ## 0.1.4 (2021-03-12)
 
 #### :rocket: Enhancement
