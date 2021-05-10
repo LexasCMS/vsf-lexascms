@@ -122,14 +122,15 @@ export default {
 
 Your component will now accept the following props to configure which content item should be retrieved. The retrieved content item is made accessible via the `item` computed property.
 
-| Name        | Type   | Required | Example                               | Comments                                                                                                                                                              |
-|-------------|--------|----------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| contentType | String | Y        | `blogPost`                            | The type of content to be retrieved.                                                                                                                                  |
-| context     | Object | N        | `{ audienceAttributes: { age: 25 } }` | See [request context documentation](https://www.lexascms.com/docs/api-reference/content-delivery/request-context/) for more info.                                     |
-| id          | String | Y        | `1234`                                | The ID of the content item to be retrieved.                                                                                                                           |
-| fields      | Object | N        | `{ blogPost: 'title,publishedAt' }`   | See [sparse fieldsets documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/sparse-fieldsets/) for more info.                           |
-| include     | String | N        | `author,coverImage`                   | See [fetching records documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/fetching-records/#including-related-records) for more info. |
-| localeCode  | String | N        | `en-GB`                               | See [localisation documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/localisation/) for more info.                                   |
+| Name        | Type   | Required | Example                                        | Comments                                                                                                                                                              |
+|-------------|--------|----------|------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| contentType | String | Y        | `blogPost`                                     | The type of content to be retrieved.                                                                                                                                  |
+| context     | Object | N        | `{ audienceAttributes: { age: 25 } }`          | See [request context documentation](https://www.lexascms.com/docs/api-reference/content-delivery/request-context/) for more info.                                     |
+| id          | String | Y        | `1234`                                         | The ID of the content item to be retrieved.                                                                                                                           |
+| fields      | Object | N        | `{ blogPost: 'title,publishedAt' }`            | See [sparse fieldsets documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/sparse-fieldsets/) for more info.                           |
+| include     | String | N        | `author,coverImage`                            | See [fetching records documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/fetching-records/#including-related-records) for more info. |
+| localeCode  | String | N        | `en-GB`                                        | See [localisation documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/localisation/) for more info.                                   |
+| page        | Object | N        | `{ relationshipField: { limit: 2, skip: 4 } }` | See [pagination documentation](https://www.lexascms.com/docs/api-reference/content-delivery/jsonapi/pagination/) for more info.                                       |
 
 
 ### Request Context
