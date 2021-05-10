@@ -21,6 +21,9 @@ export default {
     },
     localeCode: {
       type: String
+    },
+    page: {
+      type: Object
     }
   },
 
@@ -53,7 +56,8 @@ export default {
         params: {
           fields: this.fields !== undefined ? this.fields : undefined,
           include: this.include !== undefined ? this.include : undefined,
-          localeCode: this.localeCode !== undefined ? this.localeCode : undefined
+          localeCode: this.localeCode !== undefined ? this.localeCode : undefined,
+          page: this.page !== undefined ? this.page : undefined
         },
         requestContext: this.context !== undefined ? this.context : this.$store.getters['vsf-lexascms/requestContext']
       };
