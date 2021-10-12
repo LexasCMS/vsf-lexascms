@@ -47,11 +47,24 @@ export const LexascmsStore = {
             // Set request context header
             requestOptions.headers['x-lexascms-context'] = requestContext;
           }
-          // Send request
-          const response = await axios.get(args.path, requestOptions);
-          // Deserialize JSON:API response
-          const dataFormatter = new Jsona();
-          const data = dataFormatter.deserialize(response.data);
+          // Fetch data from LexasCMS
+          let data;
+          try {
+            // Send request
+            const response = await axios.get(args.path, requestOptions);
+            // Deserialize JSON:API response
+            const dataFormatter = new Jsona();
+            data = dataFormatter.deserialize(response.data);
+          } catch (e) {
+            // Check if error is ItemNotFound
+            if (e.response?.data?.errors?.[0]?.code === 'ItemNotFound') {
+              // Item not found, set data to null
+              data = null;
+            } else {
+              // Re-throw error
+              throw e;
+            }
+          }
           // Commit data to store
           commit(SET_LEXASCMS_DATA, {
             key: JSON.stringify(args),
@@ -60,10 +73,14 @@ export const LexascmsStore = {
           // Resolve
           resolve(data);
         } catch (e) {
-          console.error(JSON.stringify(e.response.data, null, 2));
+          // Get error contents
+          const errorContents = e.response?.data ?? e.message;
+          // Log error to console
+          console.error(JSON.stringify(errorContents, null, 2));
+          // Reject
           reject({
             error: 'Error fetching item from LexasCMS',
-            detail: e.response.data
+            detail: errorContents
           });
         }
       });
