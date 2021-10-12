@@ -1,3 +1,11 @@
+## 0.1.6 (2021-10-12)
+
+#### :rocket: Enhancement
+* [#19](https://github.com/LexasCMS/vsf-lexascms/pull/19) Handle ItemNotFound and generic network errors ([@mike183](https://github.com/mike183))
+
+#### Committers: 1
+- Michael Donaldson ([@mike183](https://github.com/mike183))
+
 ## 0.1.5 (2021-05-10)
 
 #### :rocket: Enhancement
