@@ -13,7 +13,7 @@
   "license": "MIT",
   "author": "LexasCMS (https://www.lexascms.com)",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "base-64": "^1.0.0",
     "jsona": "^1.8.0",
     "qs": "^6.9.4"
