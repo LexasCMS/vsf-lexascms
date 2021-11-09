@@ -1,3 +1,11 @@
+## 0.2.0 (2021-11-09)
+
+#### :boom: Breaking Change
+* [#21](https://github.com/LexasCMS/vsf-lexascms/pull/21) Add support for JSON:API meta fields ([@mike183](https://github.com/mike183))
+
+#### Committers: 1
+- Michael Donaldson ([@mike183](https://github.com/mike183))
+
 ## 0.1.6 (2021-10-12)
 
 #### :rocket: Enhancement
