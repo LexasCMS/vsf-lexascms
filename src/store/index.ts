@@ -1,7 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import base64 from 'base-64';
 import config from 'config';
-import Jsona from 'jsona';
 import * as qs from 'qs';
 import Vue from 'vue';
 
@@ -9,6 +8,7 @@ import {
   SET_LEXASCMS_DATA,
   SET_LEXASCMS_REQUEST_CONTEXT
 } from './mutation-types';
+import { DeserializeJsonapiResponse } from '../utils/deserialize-jsonapi-response';
 
 export const LexascmsStore = {
   namespaced: true,
@@ -53,8 +53,7 @@ export const LexascmsStore = {
             // Send request
             const response = await axios.get(args.path, requestOptions);
             // Deserialize JSON:API response
-            const dataFormatter = new Jsona();
-            data = dataFormatter.deserialize(response.data);
+            data = DeserializeJsonapiResponse(response.data);
           } catch (e) {
             // Check if error is ItemNotFound
             if (e.response?.data?.errors?.[0]?.code === 'ItemNotFound') {
