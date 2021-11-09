@@ -217,8 +217,8 @@ The below code defines our new `BlogPost` component:
 <template>
   <div>
     <div v-if="item">
-      <h2>{{item.title}}</h2>
-      <div>{{item.body}}</div>
+      <h2>{{item.data.title}}</h2>
+      <div>{{item.data.body}}</div>
     </div>
   </div>
 </template>
