@@ -27,6 +27,7 @@ export const LexascmsStore = {
           const requestOptions: AxiosRequestConfig = {
             baseURL: `https://${config.lexascms.spaceId}.spaces.lexascms.com/delivery/jsonapi`,
             headers: {
+              'Accept-Encoding': 'gzip',
               'Content-Type': 'application/vnd.api+json'
             },
             params: args.params,
