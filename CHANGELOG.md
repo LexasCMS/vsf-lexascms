@@ -1,3 +1,11 @@
+## 0.2.1 (2022-09-05)
+
+#### :bug: Bug Fix
+* [#27](https://github.com/LexasCMS/vsf-lexascms/pull/27) Ensure that gzip is enabled for requests to LexasCMS ([@mike183](https://github.com/mike183))
+
+#### Committers: 1
+- Michael Donaldson ([@mike183](https://github.com/mike183))
+
 ## 0.2.0 (2021-11-09)
 
 #### :boom: Breaking Change
